@@ -1,20 +1,3 @@
-# Fullstack Task Manager (MERN)
-
-
-
-# Overview
-The Cloud-Based Task Manager is a web application designed to streamline team task management. Built using the MERN stack (MongoDB, Express.js, React, and Node.js), this platform provides a user-friendly interface for efficient task assignment, tracking, and collaboration. The application caters to administrators and regular users, offering comprehensive features to enhance productivity and organization.
-
-
-
-### Why/Problem?
-In a dynamic work environment, effective task management is crucial for team success. Traditional methods of task tracking through spreadsheets or manual systems can be cumbersome and prone to errors. The Cloud-Based Task Manager aims to address these challenges by providing a centralized platform for task management, enabling seamless collaboration and improved workflow efficiency.
-
-
-
-### **Background**:
-With the rise of remote work and dispersed teams, there is a growing need for tools that facilitate effective communication and task coordination. The Cloud-Based Task Manager addresses this need by leveraging modern web technologies to create an intuitive and responsive task management solution. The MERN stack ensures scalability, while the integration of Redux Toolkit, Headless UI, and Tailwind CSS enhances user experience and performance.
-
 
 ### 
 ## **Admin Features:**
@@ -141,8 +124,6 @@ First, create the environment variables file `.env` in the client folder. The `.
 - VITE_APP_BASE_URL = `http://localhost:8800` #Note: Change the port 8800 to your port number.
 - VITE_APP_FIREBASE_API_KEY = `Firebase api key`
 
-## Steps to run client
-
 1. Navigate into the client directory `cd client`.
 2. Run `npm i` or `npm install` to install the packages.
 3. Run `npm start` to run the app on `http://localhost:3000`.
@@ -150,9 +131,3 @@ First, create the environment variables file `.env` in the client folder. The `.
 
 
 
-&nbsp;
-
-## For Support, Contact:
-
-- Email: codewavewithasante@gmail.com
-- Telegram Chat: [https://t.me/Codewave_with_asante](https://t.me/Codewave_with_asante)
