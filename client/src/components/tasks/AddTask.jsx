@@ -192,7 +192,7 @@ const AddTask = ({ open, setOpen, task }) => {
                     multiple={true}
                   />
                   <BiImages />
-                  <span>Add Assets</span>
+                  <span>Attach Files</span>
                 </label>
               </div>
             </div>

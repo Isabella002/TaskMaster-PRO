@@ -49,12 +49,12 @@ const TaskCard = ({ task }) => {
               {task?.title}
             </h4>
           </div>
-          <span className='text-sm text-gray-600 dark:text-gray-400'>
+          <span className='text-sm text-[#97C1A9]'>
             {formatDate(new Date(task?.date))}
           </span>
         </>
 
-        <div className='w-full border-t border-gray-200 dark:border-gray-700 my-2' />
+        <div className='w-full border-t border-[#97C1A9] my-2' />
         <div className='flex items-center justify-between mb-2'>
           <TaskAssets
             activities={task?.activities?.length}
@@ -80,24 +80,24 @@ const TaskCard = ({ task }) => {
 
         {/* subtasks */}
         {task?.subTasks?.length > 0 ? (
-          <div className='py-4 border-t border-gray-200 dark:border-gray-700'>
-            <h5 className='text-base line-clamp-1 text-black dark:text-gray-400'>
+          <div className='py-4 border-t border-[#97C1A9]'>
+            <h5 className='text-base line-clamp-1 text-black dark:text-[#97C1A9]'>
               {task?.subTasks[0].title}
             </h5>
 
             <div className='p-4 space-x-8'>
-              <span className='text-sm text-gray-600 dark:text-gray-500'>
+              <span className='text-sm text-[#97C1A9]'>
                 {formatDate(new Date(task?.subTasks[0]?.date))}
               </span>
-              <span className='bg-blue-600/10 px-3 py-1 rounded-full text-blue-700 font-medium'>
+              <span className='bg-[#8FCACA]/10 px-3 py-1 rounded-full text-[#8FCACA] font-medium'>
                 {task?.subTasks[0]?.tag}
               </span>
             </div>
           </div>
         ) : (
           <div>
-            <div className='py-4 border-t border-gray-200 dark:border-gray-700'>
-              <span className='text-gray-500'>No Sub-Task</span>
+            <div className='py-4 border-t border-[#97C1A9]'>
+              <span className='text-[#97C1A9]'>No Sub-Task</span>
             </div>
           </div>
         )}
@@ -106,7 +106,7 @@ const TaskCard = ({ task }) => {
           <button
             disabled={user.isAdmin ? false : true}
             onClick={() => setOpen(true)}
-            className='w-full flex gap-4 items-center text-sm text-gray-500 font-semibold disabled:cursor-not-allowed disabled:text-gray-300'
+            className='w-full flex gap-4 items-center text-sm text-[#97C1A9] font-semibold disabled:cursor-not-allowed disabled:text-gray-300'
           >
             <IoMdAdd className='text-lg' />
             <span>ADD SUBTASK</span>

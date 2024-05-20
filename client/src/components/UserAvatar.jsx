@@ -26,7 +26,7 @@ const UserAvatar = () => {
 
       navigate("/log-in");
     } catch (error) {
-      toast.error("Something went wrong. Please try again.");
+      toast.error("My bad gang, something went wrong. Try again;)");
     }
   };
 
