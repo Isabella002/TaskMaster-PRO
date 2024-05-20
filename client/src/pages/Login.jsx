@@ -42,9 +42,8 @@ const Login = () => {
             <span className='flex gap-1 py-1 px-3 border rounded-full text-sm md:text-base dark:border-gray-700 dark:text-blue-400 border-gray-300 text-gray-600'>
               Manage all your task in one place!
             </span>
-            <p className='flex flex-col gap-0 md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center dark:text-gray-400 text-blue-700'>
-              <span>Cloud-based</span>
-              <span>Task Manager</span>
+            <p className='flex flex-col gap-0 md:gap-4 text-4xl md:text-6xl 2xl:text-7xl font-black text-center dark:text-gray-400 text-purple-700'>
+              <span>TaskMaster PRO</span>
             </p>
 
             <div className='cell'>
@@ -59,22 +58,22 @@ const Login = () => {
             className='form-container w-full md:w-[400px] flex flex-col gap-y-8 bg-white dark:bg-slate-900 px-10 pt-14 pb-14'
           >
             <div>
-              <p className='text-blue-600 text-3xl font-bold text-center'>
+              <p className='text-purple-600 text-3xl font-bold text-center'>
                 Welcome back!
               </p>
               <p className='text-center text-base text-gray-700 dark:text-gray-500'>
-                Keep all your credetials safe!
+                I'll keep all your credetials safe;)
               </p>
             </div>
             <div className='flex flex-col gap-y-5'>
               <Textbox
-                placeholder='you@example.com'
+                placeholder='janedoe@example.com'
                 type='email'
                 name='email'
                 label='Email Address'
                 className='w-full rounded-full'
                 register={register("email", {
-                  required: "Email Address is required!",
+                  required: "Email address required.",
                 })}
                 error={errors.email ? errors.email.message : ""}
               />
@@ -85,7 +84,7 @@ const Login = () => {
                 label='Password'
                 className='w-full rounded-full'
                 register={register("password", {
-                  required: "Password is required!",
+                  required: "Password required.",
                 })}
                 error={errors.password ? errors.password?.message : ""}
               />
@@ -99,7 +98,7 @@ const Login = () => {
               <Button
                 type='submit'
                 label='Log in'
-                className='w-full h-10 bg-blue-700 text-white rounded-full'
+                className='w-full h-10 bg-purple-700 text-white rounded-full'
               />
             )}
           </form>
