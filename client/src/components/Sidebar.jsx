@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { FaTasks, FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaTasks, FaTrashAlt, FaUsers, FaClock } from "react-icons/fa";
 import {
   MdDashboard,
   MdOutlineAddTask,
@@ -36,7 +36,7 @@ const linkData = [
   {
     label: "To Do",
     link: "todo/todo",
-    icon: <MdOutlinePendingActions />,
+    icon: <FaClock />,
   },
   {
     label: "Team",

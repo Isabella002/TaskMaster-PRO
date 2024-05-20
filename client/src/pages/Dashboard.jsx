@@ -18,7 +18,7 @@ const Card = ({ label, count, bg, icon }) => {
   return (
     <div className='w-full h-32 bg-white p-5 shadow-md rounded-md flex items-center justify-between'>
       <div className='h-full flex flex-1 flex-col justify-between'>
-        <p className='text-base text-[#97C1A9]'>{label}</p>
+        <p className='text-base text-[#000000] font-bold'>{label}</p>
         <span className='text-2xl font-semibold'>{count}</span>
       </div>
       <div
@@ -56,28 +56,28 @@ const Dashboard = () => {
       label: 'ALL TASKS',
       total: data?.totalTasks || 0,
       icon: <FaNewspaper />,
-      bg: 'bg-[#8FCACA]',
+      bg: 'bg-[#541675]',
     },
     {
       _id: '2',
       label: 'FINISHED TASKS',
       total: totals['completed'] || 0,
       icon: <FaCheckCircle />,
-      bg: 'bg-[#97C1A9]',
+      bg: 'bg-[#7E38B7]',
     },
     {
       _id: '3',
       label: 'CURRENT TASKS',
       total: totals['in progress'] || 0,
       icon: <LuClipboardEdit />,
-      bg: 'bg-[#CCE2CB]',
+      bg: 'bg-[#9C89FF]',
     },
     {
       _id: '4',
       label: 'TODOS',
       total: totals['todo'],
       icon: <FaClock />,
-      bg: 'bg-[#B6CFB6]' || 0,
+      bg: 'bg-[#99CCED]' || 0,
     },
   ];
 
@@ -91,7 +91,7 @@ const Dashboard = () => {
         </div>
 
         <div className='w-full bg-white my-16 p-4 rounded shadow-sm'>
-          <h4 className='text-xl text-[#97C1A9] font-bold mb-2'>
+          <h4 className='text-xl text-[#000000] font-bold mb-2'>
             PRIORITY CHART
           </h4>
           <Chart data={data?.graphData} />
@@ -175,7 +175,7 @@ const TaskTable = ({ tasks }) => {
         <th className='py-2'>Task Title</th>
         <th className='py-2'>Priority</th>
         <th className='py-2'>Team</th>
-        <th className='py-2 hidden md:block'>Created At</th>
+        <th className='py-2 hidden md:block'>Created</th>
       </tr>
     </thead>
   );
