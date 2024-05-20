@@ -12,8 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { setOpenSidebar } from "../redux/slices/authSlice";
 
-const linkData = [
-  {
+const linkData = [{
     label: "Dashboard",
     link: "dashboard",
     icon: <MdDashboard />,
@@ -52,16 +51,13 @@ const linkData = [
 
 const Sidebar = () => {
   const { user } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/")[1];
   const sidebarLinks = user?.isAdmin ? linkData : linkData.slice(0, 5);
-
   const closeSidebar = () => {
     dispatch(setOpenSidebar(false));
   };
-
   const NavLink = ({ el }) => {
     return (
       <Link
@@ -70,8 +66,7 @@ const Sidebar = () => {
         className={clsx(
           "w-fult lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-gray-800 dark:text-gray-400 text-base hover:bg-purple-200",
           path === el.link.split("/")[0] ? "bg-purple-700 text-white" : ""
-        )}
-      >
+        )}>
         {el.icon}
         <span className='hover:text-[#FFFFFF]'>{el.label}</span>
       </Link>
@@ -88,13 +83,11 @@ const Sidebar = () => {
           TaskMaster PRO
         </span>
       </h1>
-
       <div className='flex-1 flex flex-col gap-y-5 py-8'>
         {sidebarLinks.map((link) => (
           <NavLink el={link} key={link.label} />
         ))}
       </div>
-
       <div className=''>
         <button className='w-full flex gap-2 p-2 items-center text-lg text-gray-800 dark:text-white'>
           <MdSettings />
@@ -104,5 +97,4 @@ const Sidebar = () => {
     </div>
   );
 };
-
 export default Sidebar;

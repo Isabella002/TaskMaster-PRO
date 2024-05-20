@@ -15,16 +15,13 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState(
     searchParams.get("search") || ""
   );
-
   useEffect(() => {
     updateURL({ searchTerm, navigate, location });
   }, [searchTerm]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     window.location.reload();
   };
-
   return (
     <div className='flex justify-between items-center bg-white dark:bg-[#1f1f1f] px-4 py-3 2xl:py-4 sticky z-10 top-0'>
       <div className='flex gap-4'>
@@ -45,8 +42,7 @@ const Navbar = () => {
               value={searchTerm}
               type='text'
               placeholder='Search TaskMaster'
-              className='flex-1 outline-none bg-transparent placeholder:text-gray-500 text-gray-800'
-            />
+              className='flex-1 outline-none bg-transparent placeholder:text-gray-500 text-gray-800'/>
           </form>
         )}
       </div>

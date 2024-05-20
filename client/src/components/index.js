@@ -15,7 +15,7 @@ import Title from "./Title";
 import UserAvatar from "./UserAvatar";
 import UserInfo from "./UserInfo";
 
-export {
+export {  //Alphebetical order
   AddUser,
   Button,
   ChangePassword,

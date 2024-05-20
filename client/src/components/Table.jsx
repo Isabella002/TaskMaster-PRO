@@ -21,24 +21,19 @@ const ICONS = {
   medium: <MdKeyboardArrowUp />,
   low: <MdKeyboardArrowDown />,
 };
-
 const Table = ({ tasks }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selected, setSelected] = useState(null);
   const [openEdit, setOpenEdit] = useState(false);
-
   const [deleteTask] = useTrashTastMutation();
-
   const deleteClicks = (id) => {
     setSelected(id);
     setOpenDialog(true);
   };
-
   const editClickHandler = (el) => {
     setSelected(el);
     setOpenEdit(true);
   };
-
   const deleteHandler = async () => {
     try {
       const res = await deleteTask({
@@ -47,7 +42,6 @@ const Table = ({ tasks }) => {
       }).unwrap();
 
       toast.success(res?.message);
-
       setTimeout(() => {
         setOpenDialog(false);
         window.location.reload();
@@ -80,7 +74,6 @@ const Table = ({ tasks }) => {
           </p>
         </div>
       </td>
-
       <td className='py-2'>
         <div className={"flex gap-1 items-center"}>
           <span className={clsx("text-lg", PRIOTITYSTYELS[task?.priority])}>
@@ -91,21 +84,17 @@ const Table = ({ tasks }) => {
           </span>
         </div>
       </td>
-
       <td className='py-2'>
         <span className='text-sm text-gray-600'>
           {formatDate(new Date(task?.date))}
         </span>
       </td>
-
       <td className='py-2'>
         <TaskAssets
           activities={task?.activities?.length}
           subTasks={task?.subTasks?.length}
-          assets={task?.assets?.length}
-        />
+          assets={task?.assets?.length}/>
       </td>
-
       <td className='py-2'>
         <div className='flex'>
           {task?.team?.map((m, index) => (
@@ -114,28 +103,24 @@ const Table = ({ tasks }) => {
               className={clsx(
                 "w-7 h-7 rounded-full text-white flex items-center justify-center text-sm -mr-1",
                 BGS[index % BGS?.length]
-              )}
-            >
+              )}>
               <UserInfo user={m} />
             </div>
           ))}
         </div>
       </td>
-
       <td className='py-2 flex gap-2 md:gap-4 justify-end'>
         <Button
           className='text-blue-600 hover:text-blue-500 sm:px-0 text-sm md:text-base'
           label='Edit'
           type='button'
-          onClick={() => editClickHandler(task)}
-        />
+          onClick={() => editClickHandler(task)}/>
 
         <Button
           className='text-red-700 hover:text-red-500 sm:px-0 text-sm md:text-base'
           label='Delete'
           type='button'
-          onClick={() => deleteClicks(task._id)}
-        />
+          onClick={() => deleteClicks(task._id)}/>
       </td>
     </tr>
   );
@@ -158,17 +143,14 @@ const Table = ({ tasks }) => {
       <ConfirmatioDialog
         open={openDialog}
         setOpen={setOpenDialog}
-        onClick={deleteHandler}
-      />
+        onClick={deleteHandler}/>
 
       <AddTask
         open={openEdit}
         setOpen={setOpenEdit}
         task={selected}
-        key={new Date().getTime()}
-      />
+        key={new Date().getTime()} />
     </>
   );
 };
-
 export default Table;

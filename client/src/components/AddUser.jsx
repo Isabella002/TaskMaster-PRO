@@ -19,10 +19,8 @@ const AddUser = ({ open, setOpen, userData }) => {
   } = useForm({ defaultValues });
 
   const dispatch = useDispatch();
-
   const [addNewUser, { isLoading }] = useRegisterMutation();
   const [updateUser, { isLoading: isUpdating }] = useUpdateUserMutation();
-
   const handleOnSubmit = async (data) => {
     try {
       if (userData) {
@@ -38,7 +36,6 @@ const AddUser = ({ open, setOpen, userData }) => {
         }).unwrap();
         toast.success("New User added successfully!");
       }
-
       setTimeout(() => {
         setOpen(false);
       }, 1500);
@@ -54,8 +51,7 @@ const AddUser = ({ open, setOpen, userData }) => {
         <form onSubmit={handleSubmit(handleOnSubmit)} className=''>
           <Dialog.Title
             as='h2'
-            className='text-base font-bold leading-6 text-gray-900 mb-4'
-          >
+            className='text-base font-bold leading-6 text-gray-900 mb-4'>
             {userData ? "UPDATE PROFILE" : "ADD NEW USER"}
           </Dialog.Title>
           <div className='mt-2 flex flex-col gap-6'>
@@ -68,8 +64,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               register={register("name", {
                 required: "A full name is needed!",
               })}
-              error={errors.name ? errors.name.message : ""}
-            />
+              error={errors.name ? errors.name.message : ""}/>
             <Textbox
               placeholder='Title'
               type='text'
@@ -79,8 +74,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               register={register("title", {
                 required: "A title is needed!",
               })}
-              error={errors.title ? errors.title.message : ""}
-            />
+              error={errors.title ? errors.title.message : ""}/>
             <Textbox
               placeholder='Email Address'
               type='email'
@@ -90,8 +84,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               register={register("email", {
                 required: "An email address is needed!",
               })}
-              error={errors.email ? errors.email.message : ""}
-            />
+              error={errors.email ? errors.email.message : ""}/>
 
             <Textbox
               placeholder='Role'
@@ -102,8 +95,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               register={register("role", {
                 required: "A user role is needed!",
               })}
-              error={errors.role ? errors.role.message : ""}
-            />
+              error={errors.role ? errors.role.message : ""}/>
           </div>
 
           {isLoading || isUpdating ? (
@@ -115,15 +107,13 @@ const AddUser = ({ open, setOpen, userData }) => {
               <Button
                 type='submit'
                 className='bg-purple-600 px-8 text-sm font-semibold text-white hover:bg-purple-700  sm:w-auto'
-                label='Submit'
-              />
+                label='Submit'/>
 
               <Button
                 type='button'
                 className='bg-white px-5 text-sm font-semibold text-gray-900 sm:w-auto'
                 onClick={() => setOpen(false)}
-                label='Cancel'
-              />
+                label='Cancel'/>
             </div>
           )}
         </form>
@@ -131,5 +121,4 @@ const AddUser = ({ open, setOpen, userData }) => {
     </>
   );
 };
-
 export default AddUser;
