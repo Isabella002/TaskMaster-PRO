@@ -25,8 +25,7 @@ const Card = ({ label, count, bg, icon }) => {
         className={clsx(
           'w-10 h-10 rounded-full flex items-center justify-center text-white',
           bg
-        )}
-      >
+        )}>
         {icon}
       </div>
     </div>
@@ -36,13 +35,11 @@ const Card = ({ label, count, bg, icon }) => {
 const Dashboard = () => {
   const { data, isLoading, error } = useGetDasboardStatsQuery();
   const { user } = useSelector((state) => state.auth);
-
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
   const totals = data?.tasks || [];
-
   if (isLoading)
     return (
       <div className='py-10'>
@@ -50,8 +47,7 @@ const Dashboard = () => {
       </div>
     );
 
-  const stats = [
-    {
+  const stats = [{
       _id: '1',
       label: 'ALL TASKS',
       total: data?.totalTasks || 0,
@@ -89,7 +85,6 @@ const Dashboard = () => {
             <Card key={index} icon={icon} bg={bg} label={label} count={total} />
           ))}
         </div>
-
         <div className='w-full bg-white my-16 p-4 rounded shadow-sm'>
           <h4 className='text-xl text-[#000000] font-bold mb-2'>
             PRIORITY CHART
@@ -131,14 +126,12 @@ const UserTable = ({ users }) => {
           </div>
         </div>
       </td>
-
       <td>
         <p
           className={clsx(
             'w-fit px-3 py-1 rounded-full text-sm',
             user?.isActive ? 'bg-[#8FCACA]' : 'bg-[#D4F0F0]'
-          )}
-        >
+          )} >
           {user?.isActive ? 'Active' : 'Disabled'}
         </p>
       </td>
@@ -162,7 +155,6 @@ const UserTable = ({ users }) => {
 
 const TaskTable = ({ tasks }) => {
   const { user } = useSelector((state) => state.auth);
-
   const ICONS = {
     high: <MdKeyboardDoubleArrowUp />,
     medium: <MdKeyboardArrowUp />,
@@ -198,7 +190,6 @@ const TaskTable = ({ tasks }) => {
           <span className='capitalize'>{task?.priority}</span>
         </div>
       </td>
-
       <td className='py-2'>
         <div className='flex'>
           {task?.team.map((m, index) => (
@@ -207,14 +198,12 @@ const TaskTable = ({ tasks }) => {
               className={clsx(
                 'w-7 h-7 rounded-full text-white flex items-center justify-center text-sm -mr-1',
                 BGS[index % BGS?.length]
-              )}
-            >
+              )}>
               <UserInfo user={m} />
             </div>
           ))}
         </div>
       </td>
-
       <td className='py-2 hidden md:block'>
         <span className='text-base text-[#97C1A9]'>
           {moment(task?.date).fromNow()}
@@ -229,8 +218,7 @@ const TaskTable = ({ tasks }) => {
         className={clsx(
           'w-full bg-white dark:bg-[#1f1f1f] px-2 md:px-4 pt-4 pb-4 shadow-md rounded',
           user?.isAdmin ? 'md:w-2/3' : ''
-        )}
-      >
+        )}>
         <table className='w-full '>
           <TableHeader />
           <tbody className=''>
@@ -243,5 +231,4 @@ const TaskTable = ({ tasks }) => {
     </>
   );
 };
-
 export default Dashboard;

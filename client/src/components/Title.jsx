@@ -12,5 +12,4 @@ const Title = ({ title, className }) => {
     </h2>
   );
 };
-
 export default Title;
