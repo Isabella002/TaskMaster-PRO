@@ -69,11 +69,9 @@ const Trash = () => {
     setMsg("Do you want to restore the selected item?");
     setOpenDialog(true);
   };
-  // WE GO HERE ON RESUME
   const deleteRestoreHandler = async () => {
     try {
       let res = null;
-
       switch (type) {
         case "delete":
           res = await deleteRestoreTask({
@@ -100,9 +98,7 @@ const Trash = () => {
           }).unwrap();
           break;
       }
-
       toast.success(res?.message);
-
       setTimeout(() => {
         setOpenDialog(false);
         refetch();
@@ -112,7 +108,6 @@ const Trash = () => {
       toast.error(err?.data?.message || err.error);
     }
   };
-
   const TableHeader = () => (
     <thead className='border-b border-gray-300 dark:border-gray-600'>
       <tr className='text-black dark:text-white  text-left'>
@@ -123,7 +118,6 @@ const Trash = () => {
       </tr>
     </thead>
   );
-
   const TableRow = ({ item }) => (
     <tr className='border-b border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-400/10'>
       <td className='py-2'>
@@ -134,7 +128,6 @@ const Trash = () => {
           </p>
         </div>
       </td>
-
       <td className='py-2 capitalize'>
         <div className={"flex gap-1 items-center"}>
           <span className={clsx("text-lg", PRIOTITYSTYELS[item?.priority])}>
@@ -143,17 +136,14 @@ const Trash = () => {
           <span className=''>{item?.priority}</span>
         </div>
       </td>
-
       <td className='py-2 capitalize text-center md:text-start'>
         {item?.stage}
       </td>
       <td className='py-2 text-sm'>{new Date(item?.date).toDateString()}</td>
-
       <td className='py-2 flex gap-1 justify-end'>
         <Button
           icon={<MdOutlineRestore className='text-xl text-gray-500' />}
-          onClick={() => restoreClick(item._id)}
-        />
+          onClick={() => restoreClick(item._id)}/>
         <Button
           icon={<MdDelete className='text-xl text-red-600' />}
           onClick={() => deleteClick(item._id)}
@@ -184,8 +174,7 @@ const Trash = () => {
                 label='Delete All'
                 icon={<MdDelete className='text-lg hidden md:flex' />}
                 className='flex flex-row-reverse gap-1 items-center  text-red-600 text-sm md:text-base rounded-md 2xl:py-2.5'
-                onClick={() => deleteAllClick()}
-              />
+                onClick={() => deleteAllClick()}/>
             </div>
           )}
         </div>
@@ -204,13 +193,11 @@ const Trash = () => {
           </div>
         ) : (
           <div className='w-full flex justify-center py-10'>
-            <p className='text-lg text-gray-500'>No Trashed Task</p>
+            <p className='text-lg text-gray-500'>Trash is empty.</p>
           </div>
         )}
       </div>
-
       <AddUser open={open} setOpen={setOpen} />
-
       <ConfirmatioDialog
         open={openDialog}
         setOpen={setOpenDialog}
@@ -218,10 +205,8 @@ const Trash = () => {
         setMsg={setMsg}
         type={type}
         setType={setType}
-        onClick={() => deleteRestoreHandler()}
-      />
+        onClick={() => deleteRestoreHandler()}/>
     </>
   );
 };
-
 export default Trash;
