@@ -38,7 +38,7 @@ const ICONS = {
 const bgColor = {
   high: "bg-red-200",
   medium: "bg-yellow-200",
-  low: "bg-blue-200",
+  low: "bg-purple-200",
 };
 
 const TABS = [
@@ -53,7 +53,7 @@ const TASKTYPEICON = {
     </div>
   ),
   started: (
-    <div className='w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white'>
+    <div className='w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white'>
       <FaThumbsUp size={20} />
     </div>
   ),
@@ -173,7 +173,7 @@ const Activities = ({ activity, id, refetch }) => {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder='Type ......'
-            className='bg-white w-full mt-10 border border-gray-300 outline-none p-4 rounded-md focus:ring-2 ring-blue-500'
+            className='bg-white w-full mt-10 border border-gray-300 outline-none p-4 rounded-md focus:ring-2 ring-purple-500'
           ></textarea>
           {isLoading ? (
             <Loading />
@@ -182,7 +182,7 @@ const Activities = ({ activity, id, refetch }) => {
               type='button'
               label='Submit'
               onClick={handleSubmit}
-              className='bg-blue-600 text-white rounded'
+              className='bg-purple-600 text-white rounded'
             />
           )}
         </div>
@@ -257,7 +257,7 @@ const TaskDetail = () => {
                       >
                         <div
                           className={
-                            "w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-blue-600"
+                            "w-10 h-10 rounded-full text-white flex items-center justify-center text-sm -mr-1 bg-purple-600"
                           }
                         >
                           <span className='text-center'>
@@ -275,7 +275,7 @@ const TaskDetail = () => {
 
                 <div className='space-y-4 py-6'>
                   <p className='text-gray-500 font-semibold text-sm'>
-                    SUB-TASKS
+                    Secondary Tasks
                   </p>
                   <div className='space-y-8'>
                     {task?.subTasks?.map((el, index) => (
