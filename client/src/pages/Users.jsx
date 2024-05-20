@@ -151,12 +151,12 @@ const Users = () => {
     <>
       <div className='w-full md:px-1 px-0 mb-6'>
         <div className='flex items-center justify-between mb-8'>
-          <Title title='  Team Members' />
+          <Title title='Team Members' />
 
           <Button
-            label='Add New User'
+            label='New User'
             icon={<IoMdAdd className='text-lg' />}
-            className='flex flex-row-reverse gap-1 items-center bg-blue-600 text-white rounded-md 2xl:py-2.5'
+            className='flex flex-row-reverse gap-1 items-center bg-purple-600 text-white rounded-md 2xl:py-2.5'
             onClick={() => setOpen(true)}
           />
         </div>
