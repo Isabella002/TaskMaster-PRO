@@ -36,7 +36,7 @@ export default function ConfirmatioDialog({
           </Dialog.Title>
 
           <p className='text-center text-gray-500'>
-            {msg ?? "Are you sure you want to delete the selected record?"}
+            {msg ?? "Are you sure you want to delete the selected?"}
           </p>
 
           <div className='bg-gray-50 py-3 sm:flex sm:flex-row-reverse gap-4'>

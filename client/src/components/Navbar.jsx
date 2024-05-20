@@ -31,19 +31,15 @@ const Navbar = () => {
         <div className=''>
           <button
             onClick={() => dispatch(setOpenSidebar(true))}
-            className='text-2xl text-gray-500 block md:hidden'
-          >
+            className='text-2xl text-gray-500 block md:hidden'>
             ☰
           </button>
         </div>
-
         {location?.pathname !== "/dashboard" && (
           <form
             onSubmit={handleSubmit}
-            className='w-64 2xl:w-[400px] flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6] dark:bg-[#1c1c1c]'
-          >
+            className='w-64 2xl:w-[400px] flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6] dark:bg-[#1c1c1c]'>
             <MdOutlineSearch className='text-gray-500 text-xl' />
-
             <input
               onChange={(e) => setSearchTerm(e.target.value)}
               value={searchTerm}
@@ -54,14 +50,11 @@ const Navbar = () => {
           </form>
         )}
       </div>
-
       <div className='flex gap-2 items-center'>
         <NotificationPanel />
-
         <UserAvatar />
       </div>
     </div>
   );
 };
-
 export default Navbar;

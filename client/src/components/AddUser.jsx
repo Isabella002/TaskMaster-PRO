@@ -36,7 +36,7 @@ const AddUser = ({ open, setOpen, userData }) => {
           ...data,
           password: data?.email,
         }).unwrap();
-        toast.success("New User added successfully");
+        toast.success("New User added successfully!");
       }
 
       setTimeout(() => {
@@ -66,7 +66,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               label='Full Name'
               className='w-full rounded'
               register={register("name", {
-                required: "Full name is required!",
+                required: "A full name is needed!",
               })}
               error={errors.name ? errors.name.message : ""}
             />
@@ -77,7 +77,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               label='Title'
               className='w-full rounded'
               register={register("title", {
-                required: "Title is required!",
+                required: "A title is needed!",
               })}
               error={errors.title ? errors.title.message : ""}
             />
@@ -88,7 +88,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               label='Email Address'
               className='w-full rounded'
               register={register("email", {
-                required: "Email Address is required!",
+                required: "An email address is needed!",
               })}
               error={errors.email ? errors.email.message : ""}
             />
@@ -100,7 +100,7 @@ const AddUser = ({ open, setOpen, userData }) => {
               label='Role'
               className='w-full rounded'
               register={register("role", {
-                required: "User role is required!",
+                required: "A user role is needed!",
               })}
               error={errors.role ? errors.role.message : ""}
             />
@@ -114,7 +114,7 @@ const AddUser = ({ open, setOpen, userData }) => {
             <div className='py-3 mt-4 sm:flex sm:flex-row-reverse'>
               <Button
                 type='submit'
-                className='bg-blue-600 px-8 text-sm font-semibold text-white hover:bg-blue-700  sm:w-auto'
+                className='bg-purple-600 px-8 text-sm font-semibold text-white hover:bg-purple-700  sm:w-auto'
                 label='Submit'
               />
 

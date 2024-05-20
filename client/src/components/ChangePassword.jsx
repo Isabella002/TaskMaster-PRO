@@ -19,12 +19,12 @@ const ChangePassword = ({ open, setOpen }) => {
 
   const handleOnSubmit = async (data) => {
     if (data.password !== data.cpass) {
-      toast.warning("Passwords doesn't match");
+      toast.warning("Passwords do not match.");
       return;
     }
     try {
       const res = await changeUserPassword(data).unwrap();
-      toast.success("New User added successfully");
+      toast.success("New User added successfully!");
 
       setTimeout(() => {
         setOpen(false);
@@ -53,7 +53,7 @@ const ChangePassword = ({ open, setOpen }) => {
               label='New Passowrd'
               className='w-full rounded'
               register={register("password", {
-                required: "New Passowrd is required!",
+                required: "New Password is needed!",
               })}
               error={errors.password ? errors.password.message : ""}
             />
@@ -64,7 +64,7 @@ const ChangePassword = ({ open, setOpen }) => {
               label='Confirm New Passowrd'
               className='w-full rounded'
               register={register("cpass", {
-                required: "Confirm New Passowrd is required!",
+                required: "Please confirm your new password!",
               })}
               error={errors.cpass ? errors.cpass.message : ""}
             />
@@ -78,7 +78,7 @@ const ChangePassword = ({ open, setOpen }) => {
             <div className='py-3 mt-4 sm:flex sm:flex-row-reverse'>
               <Button
                 type='submit'
-                className='bg-blue-600 px-8 text-sm font-semibold text-white hover:bg-blue-700  sm:w-auto'
+                className='bg-purple-600 px-8 text-sm font-semibold text-white hover:bg-purple-700  sm:w-auto'
                 label='Save'
               />
 

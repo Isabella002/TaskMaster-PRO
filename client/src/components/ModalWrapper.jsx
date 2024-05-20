@@ -10,8 +10,7 @@ const ModalWrapper = ({ open, setOpen, children }) => {
         as='div'
         className='relative z-10 w-full'
         initialFocus={cancelButtonRef}
-        onClose={() => setOpen(false)}
-      >
+        onClose={() => setOpen(false)}>
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
@@ -19,8 +18,7 @@ const ModalWrapper = ({ open, setOpen, children }) => {
           enterTo='opacity-100'
           leave='ease-in duration-200'
           leaveFrom='opacity-100'
-          leaveTo='opacity-0'
-        >
+          leaveTo='opacity-0'>
           <div className='fixed inset-0 bg-black bg-opacity-60 transition-opacity' />
         </Transition.Child>
 
@@ -33,8 +31,7 @@ const ModalWrapper = ({ open, setOpen, children }) => {
               enterTo='opacity-100 translate-y-0 sm:scale-100'
               leave='ease-in duration-200'
               leaveFrom='opacity-100 translate-y-0 sm:scale-100'
-              leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
-            >
+              leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'>
               <Dialog.Panel className='w-full relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all pb-0 sm:my-8 sm:w-full sm:max-w-lg'>
                 <div className='bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4'>
                   <div className='sm:flex sm:items-start'>
@@ -51,5 +48,4 @@ const ModalWrapper = ({ open, setOpen, children }) => {
     </Transition.Root>
   );
 };
-
 export default ModalWrapper;
