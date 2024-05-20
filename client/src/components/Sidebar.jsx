@@ -68,12 +68,12 @@ const Sidebar = () => {
         onClick={closeSidebar}
         to={el.link}
         className={clsx(
-          "w-fult lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-gray-800 dark:text-gray-400 text-base hover:bg-[#2564ed2d]",
-          path === el.link.split("/")[0] ? "bg-blue-700 text-white" : ""
+          "w-fult lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-gray-800 dark:text-gray-400 text-base hover:bg-purple-200",
+          path === el.link.split("/")[0] ? "bg-purple-700 text-white" : ""
         )}
       >
         {el.icon}
-        <span className='hover:text-[#2564ed]'>{el.label}</span>
+        <span className='hover:text-[#FFFFFF]'>{el.label}</span>
       </Link>
     );
   };
