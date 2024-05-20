@@ -50,7 +50,7 @@ const AddSubTask = ({ open, setOpen, id }) => {
               label='Title'
               className='w-full rounded'
               register={register("title", {
-                required: "Title is required!",
+                required: "A title is needed:(",
               })}
               error={errors.title ? errors.title.message : ""}
             />
@@ -60,10 +60,10 @@ const AddSubTask = ({ open, setOpen, id }) => {
                 placeholder='Date'
                 type='date'
                 name='date'
-                label='Task Date'
+                label='Date of Task'
                 className='w-full rounded'
                 register={register("date", {
-                  required: "Date is required!",
+                  required: "A date is needed:(",
                 })}
                 error={errors.date ? errors.date.message : ""}
               />
@@ -74,7 +74,7 @@ const AddSubTask = ({ open, setOpen, id }) => {
                 label='Tag'
                 className='w-full rounded'
                 register={register("tag", {
-                  required: "Tag is required!",
+                  required: "A tag is needed:(",
                 })}
                 error={errors.tag ? errors.tag.message : ""}
               />
@@ -86,13 +86,12 @@ const AddSubTask = ({ open, setOpen, id }) => {
             <div className='py-3 mt-4 flex sm:flex-row-reverse gap-4'>
               <Button
                 type='submit'
-                className='bg-blue-600 text-sm font-semibold text-white hover:bg-blue-700 sm:ml-3 sm:w-auto'
+                className='bg-[#8FCACA] text-sm font-semibold text-white sm:ml-3 hover:bg-[#97C1A9] sm:w-auto'
                 label='Add Task'
               />
-
               <Button
                 type='button'
-                className='bg-white border text-sm font-semibold text-gray-900 sm:w-auto'
+                className='bg-white border text-sm font-semibold text-[#8FCACA] sm:w-auto'
                 onClick={() => setOpen(false)}
                 label='Cancel'
               />

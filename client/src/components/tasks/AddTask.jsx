@@ -180,7 +180,7 @@ const AddTask = ({ open, setOpen, task }) => {
               </div>
               <div className='w-full flex items-center justify-center mt-4'>
                 <label
-                  className='flex items-center gap-1 text-base text-ascent-2 hover:text-ascent-1 cursor-pointer my-4'
+                  className='flex items-center gap-1 text-base text-[#97C1A9] hover:text-[#8FCACA] cursor-pointer my-4'
                   htmlFor='imgUpload'
                 >
                   <input
@@ -203,16 +203,16 @@ const AddTask = ({ open, setOpen, task }) => {
               <Loading />
             </div>
           ) : (
-            <div className='bg-gray-50 py-6 sm:flex sm:flex-row-reverse gap-4'>
+            <div className='bg-[#CCE2CB] py-6 flex justify-center gap-4'>
               <Button
                 label='Submit'
                 type='submit'
-                className='bg-blue-600 px-8 text-sm font-semibold text-white hover:bg-blue-700  sm:w-auto'
+                className='bg-[#8FCACA] px-8 text-sm font-semibold text-white hover:bg-[#97C1A9] sm:w-auto'
               />
 
               <Button
                 type='button'
-                className='bg-white px-5 text-sm font-semibold text-gray-900 sm:w-auto'
+                className='bg-white px-5 text-sm font-semibold text-[#8FCACA] hover:bg-[#D4F0F0] sm:w-auto'
                 onClick={() => setOpen(false)}
                 label='Cancel'
               />
