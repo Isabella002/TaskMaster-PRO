@@ -9,8 +9,7 @@ export default function UserInfo({ user }) {
         {({ open }) => (
           <>
             <Popover.Button
-              className={` group inline-flex items-center outline-none `}
-            >
+              className={` group inline-flex items-center outline-none `}>
               <span className='text-center'>{getInitials(user?.name)}</span>
             </Popover.Button>
             <Transition
@@ -20,8 +19,7 @@ export default function UserInfo({ user }) {
               enterTo='opacity-100 translate-y-0'
               leave='transition ease-in duration-150'
               leaveFrom='opacity-100 translate-y-0'
-              leaveTo='opacity-0 translate-y-1'
-            >
+              leaveTo='opacity-0 translate-y-1'>
               <Popover.Panel className='absolute left-1/2 z-10 mt-3 w-80 max-w-sm -translate-x-1/2 transform px-4 sm:px-0 '>
                 <div className='flex items-center gap-4 rounded-lg shadow-lg bg-white p-8'>
                   <div className='w-16 h-16 bg-blue-600 rounded-full text-white flex items-center justify-center text-2xl '>

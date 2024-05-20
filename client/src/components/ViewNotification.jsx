@@ -11,9 +11,7 @@ const ViewNotification = ({ open, setOpen, el }) => {
           <Dialog.Title as='h3' className='font-semibold text-lg'>
             {el?.task?.title}
           </Dialog.Title>
-
           <p className='text-start text-gray-500'>{el?.text}</p>
-
           <Button
             type='button'
             className='bg-white px-8 mt-3 text-sm font-semibold text-gray-900 sm:w-auto border border-gray-300'
@@ -25,5 +23,4 @@ const ViewNotification = ({ open, setOpen, el }) => {
     </>
   );
 };
-
 export default ViewNotification;

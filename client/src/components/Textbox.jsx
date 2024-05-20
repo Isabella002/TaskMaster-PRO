@@ -11,12 +11,10 @@ const Textbox = React.forwardRef(
         {label && (
           <span
             htmlFor={name}
-            className={clsx("text-slate-900 dark:text-gray-500", labelClass)}
-          >
+            className={clsx("text-slate-900 dark:text-gray-500", labelClass)}>
             {label}
           </span>
         )}
-
         <div>
           <input
             type={type || "text"}
@@ -28,8 +26,7 @@ const Textbox = React.forwardRef(
               className
             )}
             {...register}
-            aria-invalid={error ? "true" : "false"}
-          />
+            aria-invalid={error ? "true" : "false"}/>
         </div>
         {error && (
           <span className='text-xs text-[#f64949fe] mt-0.5 '>{error}</span>
@@ -38,5 +35,4 @@ const Textbox = React.forwardRef(
     );
   }
 );
-
 export default Textbox;

@@ -18,18 +18,15 @@ const UserAvatar = () => {
   const [logoutUser] = useLogoutMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const logoutHandler = async () => {
     try {
       await logoutUser().unwrap();
       dispatch(logout());
-
       navigate("/log-in");
     } catch (error) {
       toast.error("My bad gang, something went wrong. Try again;)");
     }
   };
-
   return (
     <>
       <div className=''>
@@ -41,7 +38,6 @@ const UserAvatar = () => {
               </span>
             </Menu.Button>
           </div>
-
           <Transition
             as={Fragment}
             enter='transition ease-out duration-100'
@@ -49,8 +45,7 @@ const UserAvatar = () => {
             enterTo='transform opacity-100 scale-100'
             leave='transition ease-in duration-75'
             leaveFrom='transform opacity-100 scale-100'
-            leaveTo='transform opacity-0 scale-95'
-          >
+            leaveTo='transform opacity-0 scale-95' >
             <Menu.Items className='absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white dark:bg-[#1f1f1f] shadow-2xl ring-1 ring-black/5 focus:outline-none'>
               <div className='p-4'>
                 <Menu.Item>
@@ -64,25 +59,21 @@ const UserAvatar = () => {
                     </button>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
                     <button
                       onClick={() => setOpenPassword(true)}
-                      className={`text-gray-700 dark:text-gray-300  group flex w-full items-center rounded-md px-2 py-2 text-base`}
-                    >
+                      className={`text-gray-700 dark:text-gray-300  group flex w-full items-center rounded-md px-2 py-2 text-base`} >
                       <FaUserLock className='mr-2' aria-hidden='true' />
                       Change Password
                     </button>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
                     <button
                       onClick={logoutHandler}
-                      className={`text-red-600 group flex w-full items-center rounded-md px-2 py-2 text-base`}
-                    >
+                      className={`text-red-600 group flex w-full items-center rounded-md px-2 py-2 text-base`}>
                       <IoLogOutOutline className='mr-2' aria-hidden='true' />
                       Logout
                     </button>
@@ -93,11 +84,9 @@ const UserAvatar = () => {
           </Transition>
         </Menu>
       </div>
-
       <AddUser open={open} setOpen={setOpen} userData={user} />
       <ChangePassword open={openPassword} setOpen={setOpenPassword} />
     </>
   );
 };
-
 export default UserAvatar;
