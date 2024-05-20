@@ -78,7 +78,7 @@ First, create the environment variables file `.env` in the server folder. The `.
 
 - MONGODB_URI = `your MongoDB URL`
 - JWT_SECRET = `any secret key - must be secured`
-- PORT = `8800` or any port number
+- PORT = `5001` or any port number
 - NODE_ENV = `development`
 
 
