@@ -1,6 +1,6 @@
 ### 
 
-TaskMaster PRO is an innovative task managing app that brings efficiency and organization together. TaskMaster PRO follows the MERN (MongoDB, Express, React, and Node.js) stack. The combination of classic and modern frontend technology provides an enjoyable experience for both administrators and users. Hopefully with this application you will be able to being your productivity to a whole new level.
+TaskMaster PRO follows the MERN (MongoDB, Express, React, and Node.js) stack. The combination of classic and modern frontend technology provides an enjoyable experience for both administrators and users. Hopefully with this application you will be able to being your productivity to a whole new level. This is a Capstone Project. 
 
 ## **Administrator Features**
 1. **User Management:**
