@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '18' # Use the version of Node.js that matches your local environment
+          node-version: '20' # Updated to use Node.js 20
       - name: Install root dependencies
         run: npm install
       - name: Install client dependencies
