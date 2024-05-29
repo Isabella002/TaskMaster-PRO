@@ -4,29 +4,28 @@
     "description": "MERN stack task manager application",
     "main": "server/index.js",
     "scripts": {
-      "start": "npm run server",
-      "server": "nodemon server/index.js",
-      "client": "npm start --prefix client",
-      "client-install": "npm install --prefix client",
-      "build": "npm run build --prefix client",
-      "dev": "concurrently \"npm run server\" \"npm run client\""
+        "start": "npm run server",
+        "server": "nodemon server/index.js",
+        "client": "npm start --prefix client",
+        "client-install": "npm install --prefix client",
+        "build": "npm run build --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "author": "Isabella Mester",
     "license": "ISC",
     "dependencies": {
-      "bcryptjs": "^2.4.3",
-      "cookie-parser": "^1.4.6",
-      "cors": "^2.8.5",
-      "dotenv": "^16.3.1",
-      "express": "^4.19.2",
-      "express-async-handler": "^1.2.0",
-      "jsonwebtoken": "^9.0.2",
-      "mongoose": "^8.0.3",
-      "morgan": "^1.10.0"
+        "bcryptjs": "^2.4.3",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "express": "^4.19.2",
+        "express-async-handler": "^1.2.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.0.3",
+        "morgan": "^1.10.0"
     },
     "devDependencies": {
-      "concurrently": "^6.2.0",
-      "nodemon": "^3.0.2"
+        "concurrently": "^6.2.0",
+        "nodemon": "^3.0.2"
     }
-  }
-  
+}
