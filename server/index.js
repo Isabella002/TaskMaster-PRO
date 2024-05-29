@@ -17,7 +17,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: ["http://localhost:3000", "http://localhost:3001", "taskmanager-f6611.web.app", "taskmanager-f6611.firebaseapp.com"],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
