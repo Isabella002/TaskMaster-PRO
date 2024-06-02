@@ -23,12 +23,9 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 
   const isMatch = await user.matchPassword(password);
-
   if (user && isMatch) {
     createJWT(res, user._id);
-
     user.password = undefined;
-
     res.status(200).json(user);
   } else {
     return res
@@ -40,9 +37,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // POST - Register a new user
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, isAdmin, role, title } = req.body;
-
   const userExists = await User.findOne({ email });
-
   if (userExists) {
     return res
       .status(400)
@@ -60,9 +55,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (user) {
     isAdmin ? createJWT(res, user._id) : null;
-
     user.password = undefined;
-
     res.status(201).json(user);
   } else {
     return res
@@ -216,22 +209,11 @@ const activateUserProfile = asyncHandler(async (req, res) => {
 
 const changeUserPassword = asyncHandler(async (req, res) => {
   const { userId } = req.user;
-
-  // Remove this condition
-  if (userId === "65ff94c7bb2de638d0c73f63") {
-    return res.status(404).json({
-      status: false,
-      message: "This is a test user. You can not chnage password. Thank you!!!",
-    });
-  }
-
   const user = await User.findById(userId);
 
   if (user) {
     user.password = req.body.password;
-
     await user.save();
-
     user.password = undefined;
 
     res.status(201).json({

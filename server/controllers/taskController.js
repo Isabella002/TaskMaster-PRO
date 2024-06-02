@@ -17,7 +17,7 @@ export const createTask = async (req, res) => {
       text +
       ` The task priority is set a ${priority} priority, so check and act accordingly. The task date is ${new Date(
         date
-      ).toDateString()}. Thank you!!!`;
+      ).toDateString()}.`;
 
     const activity = {
       type: "assigned",
@@ -70,16 +70,16 @@ export const duplicateTask = async (req, res) => {
     await newTask.save();
 
     //alert users of the task
-    let text = "New task has been assigned to you";
+    let text = "A new task has been assigned to you";
     if (task.team.length > 1) {
       text = text + ` and ${task.team.length - 1} others.`;
     }
 
     text =
       text +
-      ` The task priority is set a ${
+      ` The task priority is set: ${
         task.priority
-      } priority, so check and act accordingly. The task date is ${task.date.toDateString()}. Thank you!!!`;
+      } The task date is ${task.date.toDateString()}.`;
 
     await Notice.create({
       team: task.team,
@@ -101,9 +101,7 @@ export const postTaskActivity = async (req, res) => {
     const { id } = req.params;
     const { userId } = req.user;
     const { type, activity } = req.body;
-
     const task = await Task.findById(id);
-
     const data = {
       type,
       activity,
@@ -111,9 +109,7 @@ export const postTaskActivity = async (req, res) => {
     };
 
     task.activities.push(data);
-
     await task.save();
-
     res
       .status(200)
       .json({ status: true, message: "Activity posted successfully." });
@@ -164,7 +160,6 @@ export const dashboardStatistics = async (req, res) => {
       return result;
     }, {});
 
-    // Group tasks by priority
     const groupData = Object.entries(
       allTasks.reduce((result, task) => {
         const { priority } = task;
@@ -174,7 +169,6 @@ export const dashboardStatistics = async (req, res) => {
       }, {})
     ).map(([name, total]) => ({ name, total }));
 
-    // calculate total tasks
     const totalTasks = allTasks?.length;
     const last10Task = allTasks?.slice(0, 10);
 
@@ -263,11 +257,8 @@ export const createSubTask = async (req, res) => {
     };
 
     const task = await Task.findById(id);
-
     task.subTasks.push(newSubTask);
-
     await task.save();
-
     res
       .status(200)
       .json({ status: true, message: "SubTask added successfully." });
@@ -292,7 +283,6 @@ export const updateTask = async (req, res) => {
     task.team = team;
 
     await task.save();
-
     res
       .status(200)
       .json({ status: true, message: "Task duplicated successfully." });
@@ -305,13 +295,9 @@ export const updateTask = async (req, res) => {
 export const trashTask = async (req, res) => {
   try {
     const { id } = req.params;
-
     const task = await Task.findById(id);
-
     task.isTrashed = true;
-
     await task.save();
-
     res.status(200).json({
       status: true,
       message: `Task trashed successfully.`,
