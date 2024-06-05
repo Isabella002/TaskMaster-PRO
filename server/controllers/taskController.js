@@ -5,17 +5,14 @@ import User from "../models/userModel.js";
 export const createTask = async (req, res) => {
   try {
     const { userId } = req.user;
-
     const { title, team, stage, date, priority, assets } = req.body;
-
     let text = "New task has been assigned to you";
     if (team?.length > 1) {
       text = text + ` and ${team?.length - 1} others.`;
     }
-
     text =
       text +
-      ` The task priority is set a ${priority} priority, so check and act accordingly. The task date is ${new Date(
+      ` The task priority is set: ${priority}. The task date is ${new Date(
         date
       ).toDateString()}.`;
 
@@ -53,9 +50,7 @@ export const createTask = async (req, res) => {
 export const duplicateTask = async (req, res) => {
   try {
     const { id } = req.params;
-
     const task = await Task.findById(id);
-
     const newTask = await Task.create({
       ...task,
       title: task.title + " - Duplicate",
@@ -69,7 +64,6 @@ export const duplicateTask = async (req, res) => {
 
     await newTask.save();
 
-    //alert users of the task
     let text = "A new task has been assigned to you";
     if (task.team.length > 1) {
       text = text + ` and ${task.team.length - 1} others.`;

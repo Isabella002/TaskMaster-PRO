@@ -1,9 +1,10 @@
+// server/index.js
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import { errorHandler, routeNotFound } from "./middleware/errorMiddleware.js";
+import { errorHandler, routeNotFound, handleJSONParsingError } from "./middleware/errorMiddleware.js";
 import routes from "./routes/index.js";
 import dbConnection from "./utils/connectDB.js";
 
@@ -13,7 +14,7 @@ dbConnection();
 
 const app = express();
 
-const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
+const allowedOrigins = ["http://localhost:3000", "http://localhost:3001", "https://taskmanager-f6611.web.app"];
 
 app.use(cors({
   origin: (origin, callback) => {
@@ -33,27 +34,11 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use("/api", routes);
 
+// Middleware to handle JSON parsing errors
+app.use(handleJSONParsingError);
+
 app.use(routeNotFound);
 app.use(errorHandler);
 
 const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server listening on ${port}`));
-
-fetch('https://taskmanager-f6611.web.app/api/user/login', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  credentials: 'include', // Include credentials (cookies, authorization headers, etc.)
-  body: JSON.stringify({
-    username: 'your-username',
-    password: 'your-password',
-  }),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-})
-.catch((error) => {
-  console.error('Error:', error);
-});

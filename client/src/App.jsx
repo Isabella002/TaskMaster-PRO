@@ -17,12 +17,9 @@ function Layout() {
       <div className='w-1/5 h-screen bg-white dark:bg-[#1f1f1f] sticky top-0 hidden md:block'>
         <Sidebar />
       </div>
-
       <MobileSidebar />
-
       <div className='flex-1 overflow-y-auto'>
         <Navbar />
-
         <div className='p-4 2xl:px-10'>
           <Outlet />
         </div>
@@ -37,13 +34,11 @@ const MobileSidebar = () => {
   const { isSidebarOpen } = useSelector((state) => state.auth);
   const mobileMenuRef = useRef(null);
   const dispatch = useDispatch();
-
   const closeSidebar = () => {
     dispatch(setOpenSidebar(false));
   };
 
-  return (
-    <>
+  return (<>
       <Transition
         show={isSidebarOpen}
         as={Fragment}
@@ -52,25 +47,21 @@ const MobileSidebar = () => {
         enterTo='opacity-x-100'
         leave='transition-opacity duration-700'
         leaveFrom='opacity-x-100'
-        leaveTo='opacity-x-0'
-      >
+        leaveTo='opacity-x-0'>
         {(ref) => (
           <div
             ref={(node) => (mobileMenuRef.current = node)}
             className={`md:hidden w-full h-full bg-black/40 transition-transform duration-700 transform
              ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
-            onClick={() => closeSidebar()}
-          >
+            onClick={() => closeSidebar()} >
             <div className='bg-white w-3/4 h-full'>
               <div className='w-full flex justify-end px-5 pt-5'>
                 <button
                   onClick={() => closeSidebar()}
-                  className='flex justify-end items-end'
-                >
+                  className='flex justify-end items-end' >
                   <IoMdClose size={25} />
                 </button>
               </div>
-
               <div className='-mt-10'>
                 <Sidebar />
               </div>
@@ -100,11 +91,9 @@ const App = () => {
             <Route path='/task/:id' element={<TaskDetail />} />
             <Route path='/team' element={<Users />} />
           </Route>
-
           <Route path='/log-in' element={<Login />} />
         </Routes>
       </div>
-
       <Toaster richColors position='top-center' />
     </main>
   );
